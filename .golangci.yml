@@ -1,0 +1,29 @@
+linters:
+  enable-all: true
+  disable:
+    - wsl
+    - gochecknoglobals
+    - testpackage
+    - promlinter
+    - lll
+    - funlen
+    - maligned
+    - wrapcheck
+    - varnamelen
+    - exhaustivestruct
+    - cyclop
+    - gocognit
+    - goerr113
+    - ireturn
+    - nlreturn
+    - prealloc
+    - godox
+    # Deprecated, disabled to remove warnings
+    - scopelint
+    - interfacer
+    - golint
+run:
+  tests: false
+  skip-files:
+    - ".*\\.pb\\.go$"
+    - ".*\\_mock\\.go$"
