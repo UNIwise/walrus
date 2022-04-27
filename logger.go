@@ -1,4 +1,4 @@
-package main
+package walrus
 
 import (
 	"github.com/ThreeDotsLabs/watermill"
