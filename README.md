@@ -3,11 +3,10 @@
 <b>WaLrUs...</b>
 </p>
 
-# Walrus
+---
 
 Walrus is a [watermill](https://watermill.io) log adatper for [logrus](https://github.com/sirupsen/logrus).
 
----
 ## Usage:
 
 ```golang
