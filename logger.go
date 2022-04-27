@@ -1,4 +1,4 @@
-package main
+package walrus
 
 import (
 	"github.com/ThreeDotsLabs/watermill"
@@ -9,22 +9,16 @@ import (
 var _ watermill.LoggerAdapter = &Logger{}
 
 type Logger struct {
-	entry *logrus.Entry
+	entry logrus.FieldLogger
 }
 
 func New() watermill.LoggerAdapter {
 	return &Logger{
-		entry: logrus.NewEntry(logrus.StandardLogger()),
+		entry: logrus.StandardLogger(),
 	}
 }
 
-func NewWithLogger(l *logrus.Logger) watermill.LoggerAdapter {
-	return &Logger{
-		entry: l.WithFields(nil),
-	}
-}
-
-func NewWithEntry(l *logrus.Entry) watermill.LoggerAdapter {
+func NewWithLogger(l logrus.FieldLogger) watermill.LoggerAdapter {
 	return &Logger{
 		entry: l,
 	}

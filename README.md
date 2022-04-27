@@ -18,7 +18,7 @@ logger := walrus.New()
 logger := walrus.NewWithLogger(logrus.StandardLogger())
 
 // With a specific log entry
-logger := walrus.NewWithEntry(logrus.StandardLogger().WithField("foo", "bar"))
+logger := walrus.NewWithLogger(logrus.StandardLogger().WithField("foo", "bar")
 
 // Example for NATS subscriber
 subscriber, err := nats.NewStreamingSubscriber(
