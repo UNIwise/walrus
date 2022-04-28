@@ -21,12 +21,7 @@ logger := walrus.NewWithLogger(logrus.StandardLogger())
 logger := walrus.NewWithLogger(logrus.StandardLogger().WithField("foo", "bar")
 
 // Example for NATS subscriber
-subscriber, err := nats.NewStreamingSubscriber(
-    nats.StreamingSubscriberConfig{
-        ...
-    },
-    logger,
-)
+subscriber, err := nats.NewStreamingSubscriber(nats.StreamingSubscriberConfig{}, logger)
 
 // Example for message router
 router, err := message.NewRouter(message.RouterConfig{}, logger)
