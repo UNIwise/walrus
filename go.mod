@@ -1,4 +1,4 @@
-module walrus
+module github.com/uniwise/walrus
 
 go 1.17
 
