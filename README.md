@@ -1,5 +1,5 @@
 <p align="center">
-<img alt="Parrot logo" src="assets/logo.png" height="150"/>
+<img alt="Walrus logo" src="assets/logo.png" height="150"/>
 <b>WaLrUs...</b>
 </p>
 
