@@ -1,38 +1,17 @@
 name: CI
 
-permissions:
-  contents: read
-  pull-requests: read
-
 on:
   push:
-    branches: [master]
-  pull_request:
-    branches: [master]
+    branches:
+      - master
+  release:
+    types: [published]
+  pull_request: {}
 
 jobs:
-  test:
-    runs-on: default
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.17
-
-      - name: Test
-        run: go test -v ./...
-
-  lint:
-    name: lint
-    runs-on: default
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-
-      - name: golangci-lint
-        uses: golangci/golangci-lint-action@v2
-        with:
-          version: latest
-          github-token: ${{secrets.GITHUB_TOKEN}}
+  golang:
+    uses: UNIwise/workflows/.github/workflows/golang.yaml@master
+    secrets: inherit
+    with:
+      go-version: 1.26
+      golangci-lint-version: v2.11.4
