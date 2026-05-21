@@ -1,29 +1,93 @@
+version: "2"
+
 linters:
-  enable-all: true
-  disable:
-    - wsl
-    - gochecknoglobals
-    - testpackage
-    - promlinter
+  default: none
+  enable:
+    - asasalint
+    - asciicheck
+    - bidichk
+    - bodyclose
+    - copyloopvar
+    - dogsled
+    - dupword
+    - embeddedstructfieldcheck
+    - errcheck
+    - errname
+    - exhaustive
+    - exptostd
+    - gocheckcompilerdirectives
+    - gochecknoinits
+    - gochecksumtype
+    - godot
+    - gomoddirectives
+    - gosec
+    - govet
+    - inamedparam
+    - ineffassign
+    - intrange
+    - iotamixing
     - lll
-    - funlen
-    - maligned
-    - wrapcheck
-    - varnamelen
-    - exhaustivestruct
-    - cyclop
-    - gocognit
-    - goerr113
-    - ireturn
+    - misspell
+    - modernize
+    - musttag
+    - nestif
     - nlreturn
-    - prealloc
-    - godox
-    # Deprecated, disabled to remove warnings
-    - scopelint
-    - interfacer
-    - golint
+    - nolintlint
+    - nonamedreturns
+    - nosprintfhostport
+    - paralleltest
+    - perfsprint
+    - predeclared
+    - promlinter
+    - protogetter
+    - staticcheck
+    - tagalign
+    - testifylint
+    - unconvert
+    - unparam
+    - unused
+    - usestdlibvars
+    - whitespace
+    - wsl_v5
+  exclusions:
+    generated: strict
+    rules:
+      - path: _test\.go
+        linters:
+          - errcheck
+          - dupl
+          - gosec
+      - linters:
+          - errcheck
+        source: "^\\s*defer\\s+"
+  settings:
+    errcheck:
+      check-type-assertions: true
+      check-blank: true
+    lll:
+      line-length: 150
+    paralleltest:
+      ignore-missing-subtests: true
+    tagalign:
+      strict: true
+    testifylint:
+      disable:
+        - require-error
+
+formatters:
+  enable:
+    - gofmt
+    - gofumpt
+    - goimports
+    - golines
+  settings:
+    gofumpt:
+      extra-rules: true
+    golines:
+      max-len: 150
+
+issues:
+  fix: true
+
 run:
-  tests: false
-  skip-files:
-    - ".*\\.pb\\.go$"
-    - ".*\\_mock\\.go$"
+  timeout: 5m
